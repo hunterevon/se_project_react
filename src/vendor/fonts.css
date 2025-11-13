@@ -43,7 +43,7 @@
   font-style: normal;
   font-weight: 700;
   src: local("Cabinet Grotesk Bold"),
-    url("CabinetGrotesk-Bold.woff") format("woff");
+    url("CabinetGrotesk-Bold.otf") format("otf");
 }
 
 @font-face {
