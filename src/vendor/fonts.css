@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400;
   src: local("Cabinet Grotesk Regular"),
-    url("CabinetGrotesk-Regular.woff") format("woff");
+    url("CabinetGrotesk-Regular.otf") format("otf");
 }
 
 @font-face {

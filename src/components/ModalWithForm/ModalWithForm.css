@@ -1,0 +1,124 @@
+.modal {
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__content {
+  position: relative;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 28px 28px 36px;
+  max-width: 496px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.modal__close {
+  background: transparent url(../../assets/Close-icon.png) center no-repeat;
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+
+.modal__close:hover {
+  cursor: pointer;
+}
+
+.modal__title {
+  margin: 0 0 24px;
+  height: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal__label {
+  width: 100%;
+  border-bottom: 1px solid;
+  margin: 0 0 24px;
+}
+
+.modal__input {
+  display: block;
+  border: none;
+  margin: 8px 0 0;
+  width: 100%;
+  outline: none;
+}
+
+.modal__radio-buttons {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__legend {
+  margin: 0 0 12px;
+}
+
+.modal__label_type_radio {
+  border: none;
+  display: flex;
+  gap: 8px;
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  width: 50px;
+}
+
+.modal__label_type_radio:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 1);
+}
+
+.modal__radio-input {
+  border: none;
+}
+
+.modal__radio-input:checked {
+  color: rgba(0, 0, 0, 1);
+}
+
+.modal__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 24px;
+  width: 124px;
+  height: 36px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.modal__submit:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
+}
