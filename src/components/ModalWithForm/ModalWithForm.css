@@ -99,8 +99,12 @@
   border: none;
 }
 
+.modal__radio-input:hover {
+  cursor: pointer;
+}
+
 .modal__radio-input:checked {
-  color: rgba(0, 0, 0, 1);
+  accent-color: black;
 }
 
 .modal__submit {
