@@ -25,3 +25,7 @@
   border-radius: 16px;
   border: 1px rgba(0, 0, 0, 0.3) solid;
 }
+
+.card__image:hover {
+  cursor: pointer;
+}
