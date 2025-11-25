@@ -1,0 +1,52 @@
+.toggle-switch {
+  width: 56px;
+  height: 28px;
+  border: 2px solid rgba(126, 126, 126, 1);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 20px 0 auto;
+}
+
+.toggle-switch:hover {
+  border: 2px solid rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+.toggle-switch__checkbox {
+  opacity: 0;
+}
+
+.toggle-switch__circle {
+  background-color: rgba(0, 0, 0, 1);
+  width: 28px;
+  height: 28px;
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  transition: all 0.5s;
+}
+
+.toggle-switch__text {
+  font-size: 14px;
+  line-height: 1;
+  position: absolute;
+  color: rgba(0, 0, 0, 0.5);
+  top: 7px;
+}
+
+.toggle-switch__text_F {
+  left: 9px;
+}
+
+.toggle-switch__text_C {
+  right: 9px;
+}
+
+.toggle-switch__checkbox:checked ~ .toggle-switch__circle {
+  left: 28px;
+}
+
+.toggle-switch__text_color_white {
+  color: white;
+}
