@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import Header from "../Header/Header";
@@ -91,12 +92,20 @@ function App() {
             weatherData={weatherData}
             isLoading={isWeatherDataLoading}
           />
-          <Main
-            weatherData={weatherData}
-            clothingItems={clothingItems}
-            handleCardClick={handleCardClick}
-            isLoading={isWeatherDataLoading}
-          />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  clothingItems={clothingItems}
+                  handleCardClick={handleCardClick}
+                  isLoading={isWeatherDataLoading}
+                />
+              }
+            />
+            <Route path="/profile" element={<p>Profile</p>} />
+          </Routes>
           <Footer />
         </div>
         <AddItemModal
