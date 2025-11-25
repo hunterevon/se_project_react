@@ -15,9 +15,13 @@ function App() {
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
   const [weatherData, setWeatherData] = useState({
     type: "",
-    temp: { F: 999 },
+    temp: { F: 999, C: 999 },
     city: "",
+    condition: "",
+    isDay: true,
   });
+
+  const [isWeatherDataLoading, setIsWeatherDataLoading] = useState(false);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -54,12 +58,16 @@ function App() {
   }, [activeModal]);
 
   useEffect(() => {
+    setIsWeatherDataLoading(true);
     getWeather(coordinates, apiKey)
       .then((data) => {
         const filterData = filterWeatherData(data);
         setWeatherData(filterData);
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => {
+        setIsWeatherDataLoading(false);
+      });
   }, []);
 
   return (
@@ -68,11 +76,16 @@ function App() {
     >
       <div className="page">
         <div className="page__content">
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Header
+            handleAddClick={handleAddClick}
+            weatherData={weatherData}
+            isLoading={isWeatherDataLoading}
+          />
           <Main
             weatherData={weatherData}
             clothingItems={clothingItems}
             handleCardClick={handleCardClick}
+            isLoading={isWeatherDataLoading}
           />
           <Footer />
         </div>
