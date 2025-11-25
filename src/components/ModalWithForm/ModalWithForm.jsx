@@ -1,6 +1,14 @@
 import "./ModalWithForm.css";
 
-function ModalWithForm({ children, buttonText, title, isOpen, name, onClose }) {
+function ModalWithForm({
+  children,
+  buttonText,
+  title,
+  isOpen,
+  name,
+  onClose,
+  onSubmit,
+}) {
   return (
     <div className={`modal modal_type_${name} ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content">
@@ -10,7 +18,7 @@ function ModalWithForm({ children, buttonText, title, isOpen, name, onClose }) {
           className="modal__close"
         ></button>
         <h2 className="modal__title">{title}</h2>
-        <form className="modal__form">
+        <form onSubmit={onSubmit} className="modal__form">
           {children}
           <button type="submit" className="modal__submit">
             {buttonText}

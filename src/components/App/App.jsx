@@ -23,7 +23,7 @@ function App() {
 
   const [isWeatherDataLoading, setIsWeatherDataLoading] = useState(false);
   const [activeModal, setActiveModal] = useState("");
-  const [selectedCard, setSelectedCard] = useState({});
+  const [selectedCard, setSelectedCard] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
   const handleToggleSwitchChange = () => {
@@ -37,6 +37,16 @@ function App() {
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
+  };
+
+  const onAddItem = (inputValues) => {
+    const newCardData = {
+      name: inputValues.name,
+      link: inputValues.link,
+      weather: inputValues.weatherType,
+    };
+    setClothingItems([...clothingItems, newCardData]);
+    closeActiveModal();
   };
 
   const closeActiveModal = () => {
@@ -91,9 +101,9 @@ function App() {
         </div>
         <AddItemModal
           isOpen={activeModal === "add-garment"}
-          buttonText="Add garment"
           activeModal={activeModal}
           onClose={closeActiveModal}
+          onAddItem={onAddItem}
         />
         <ItemModal
           isOpen={activeModal === "preview"}
