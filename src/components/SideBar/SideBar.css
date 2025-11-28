@@ -1,0 +1,21 @@
+.sidebar__profile {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 16px;
+  align-items: center;
+}
+
+.sidebar__avatar {
+  margin-left: 12px;
+  flex: 0 0 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  height: 56px;
+}
+
+.sidebar__user-name {
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+}

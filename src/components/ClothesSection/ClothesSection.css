@@ -1,0 +1,40 @@
+.clothes-section {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.clothes-section__row {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.clothes-section__items {
+  margin-left: 116px;
+}
+
+.clothes-section__button {
+  height: 25px;
+  background-color: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.clothes-section__button:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 1);
+  border-bottom: 1px solid black;
+}
+
+.clothes-section__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  margin-left: 116px;
+  width: 100%;
+  gap: 20px;
+  padding: 0;
+  list-style-type: none;
+}

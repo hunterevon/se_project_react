@@ -11,6 +11,7 @@ import { coordinates, apiKey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { defaultClothingItems } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
+import Profile from "../Profile/Profile";
 
 function App() {
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
@@ -104,7 +105,15 @@ function App() {
                 />
               }
             />
-            <Route path="/profile" element={<p>Profile</p>} />
+            <Route
+              path="/profile"
+              element={
+                <Profile
+                  onCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                />
+              }
+            />
           </Routes>
           <Footer />
         </div>
