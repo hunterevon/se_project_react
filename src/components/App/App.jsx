@@ -9,12 +9,12 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
 import { coordinates, apiKey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-import { defaultClothingItems } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import Profile from "../Profile/Profile";
+import { getItems } from "../../utils/api";
 
 function App() {
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999, C: 999 },
@@ -76,7 +76,14 @@ function App() {
         const filterData = filterWeatherData(data);
         setWeatherData(filterData);
       })
+      .catch(console.error);
+
+    getItems()
+      .then((data) => {
+        setClothingItems(data);
+      })
       .catch(console.error)
+
       .finally(() => {
         setIsWeatherDataLoading(false);
       });
