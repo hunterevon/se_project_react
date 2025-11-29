@@ -1,6 +1,6 @@
 export const settings = {
   formSelector: ".modal__form",
-  inputSelector: ".modal__input",
+  inputSelector: [".modal__input", ".modal__radio-input"],
   submitButtonSelector: ".modal__submit",
   inactiveButtonClass: "modal__submit_error",
   inputErrorClass: "modal__input_error",
@@ -22,7 +22,7 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
   inputError(inputElement, config);
 };
 
-function hideInputError(formElement, inputElement, config) {
+export function hideInputError(formElement, inputElement, config) {
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`
   );

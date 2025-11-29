@@ -1,4 +1,5 @@
 import "./ModalWithForm.css";
+import { enableValidation, settings } from "../Validation/Validation";
 
 function ModalWithForm({
   children,
@@ -9,6 +10,8 @@ function ModalWithForm({
   onClose,
   onSubmit,
 }) {
+  enableValidation(settings);
+
   return (
     <div className={`modal modal_type_${name} ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content">

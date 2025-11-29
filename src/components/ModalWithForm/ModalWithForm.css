@@ -60,6 +60,15 @@
   margin: 0 0 24px;
 }
 
+.modal__label_error {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.7);
+}
+
+.modal__label_error:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
 .modal__input {
   display: block;
   border: none;
