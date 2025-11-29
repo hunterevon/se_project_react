@@ -11,7 +11,7 @@ import { coordinates, apiKey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import Profile from "../Profile/Profile";
-import { getItems } from "../../utils/api";
+import { addItem, getItems, removeItem } from "../../utils/api";
 
 function App() {
   const [clothingItems, setClothingItems] = useState([]);
@@ -44,11 +44,29 @@ function App() {
   const onAddItem = (inputValues) => {
     const newCardData = {
       name: inputValues.name,
-      link: inputValues.link,
+      imageUrl: inputValues.imageUrl,
       weather: inputValues.weatherType,
     };
-    setClothingItems([...clothingItems, newCardData]);
-    closeActiveModal();
+
+    addItem(newCardData)
+      .then((data) => {
+        setClothingItems([data, ...clothingItems]);
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
+
+  const handleCardDelete = () => {
+    removeItem(selectedCard._id)
+      .then(() => {
+        const filteredItem = clothingItems.filter((item) => {
+          return item._id !== selectedCard._id;
+        });
+        setClothingItems(filteredItem);
+        closeActiveModal();
+        setCardToDelete(null);
+      })
+      .catch(console.error);
   };
 
   const closeActiveModal = () => {
@@ -80,7 +98,7 @@ function App() {
 
     getItems()
       .then((data) => {
-        setClothingItems(data);
+        setClothingItems(data.reverse());
       })
       .catch(console.error)
 
@@ -129,11 +147,13 @@ function App() {
           activeModal={activeModal}
           onClose={closeActiveModal}
           onAddItem={onAddItem}
+          onDelete={handleCardDelete}
         />
         <ItemModal
           isOpen={activeModal === "preview"}
           card={selectedCard}
           onClose={closeActiveModal}
+          onDelete={handleCardDelete}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>

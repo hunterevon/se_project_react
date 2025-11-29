@@ -4,7 +4,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   const defaultValues = {
     name: "",
-    link: "",
+    imageUrl: "",
     weatherType: "",
   };
   const { values, handleChange } = useForm(defaultValues);
@@ -43,11 +43,11 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
         <input
           required
           id="imageUrl"
-          name="link"
+          name="imageUrl"
           type="url"
           className="modal__input"
           placeholder="Image URL"
-          value={values.link}
+          value={values.imageUrl}
           onChange={handleChange}
         />
         <span className="modal__error" id="place-link-error" />

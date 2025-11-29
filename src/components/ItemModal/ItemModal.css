@@ -33,6 +33,7 @@
   flex-direction: column;
   margin: 0;
   padding: 20px 32px;
+  position: relative;
 }
 
 .modal__caption {
@@ -42,4 +43,25 @@
 
 .modal__weather {
   margin: 0;
+}
+
+.modal__delete {
+  position: absolute;
+  align-self: flex-end;
+  width: 98px;
+  height: 14px;
+  border: none;
+  background-color: transparent;
+  color: rgba(255, 77, 0, 1);
+  padding: 0;
+  margin: 0;
+}
+
+.modal__delete:hover {
+  cursor: pointer;
+  color: rgba(255, 77, 0, 0.7);
+}
+
+.modal__delete-preview {
+  visibility: hidden;
 }
