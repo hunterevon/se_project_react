@@ -1,5 +1,12 @@
+import { useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import {
+  settings,
+  enableValidation,
+  resetValidation,
+  disableButton,
+} from "../Validation/Validation";
 
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   const defaultValues = {
@@ -29,14 +36,14 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
           name="name"
           id="clothing-name"
           type="text"
-          className="modal__input"
+          className="modal__input modal__input_error"
           placeholder="Name"
           minLength="2"
           maxLength="30"
           value={values.name}
           onChange={handleChange}
         />
-        <span className="modal__error" id="place-name-error" />
+        <span className="modal__error" id="clothing-name-error" />
       </label>
       <label className="modal__label">
         Image URL
@@ -45,12 +52,12 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
           id="imageUrl"
           name="imageUrl"
           type="url"
-          className="modal__input"
+          className="modal__input modal__input_error"
           placeholder="Image URL"
           value={values.imageUrl}
           onChange={handleChange}
         />
-        <span className="modal__error" id="place-link-error" />
+        <span className="modal__error" id="imageUrl-error" />
       </label>
       <fieldset className="modal__radio-buttons">
         <legend className="modal__legend">Select the weather type:</legend>

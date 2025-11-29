@@ -1,0 +1,84 @@
+.modal {
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__confirmation {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 28px 28px 36px;
+  max-width: 670px;
+  height: 280px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.modal__confirmation_text {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 20px 0 40px 0;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.modal__confirmation_close {
+  background: transparent url(../../assets/Close-icon.png) center no-repeat;
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+
+.modal__confirmation_close:hover {
+  cursor: pointer;
+}
+
+.modal__confirmation_button {
+  border: none;
+  background-color: transparent;
+  align-items: center;
+}
+
+.modal__confirmation_button_delete {
+  margin: 0 auto;
+  padding: 0;
+  color: rgba(255, 77, 0, 1);
+  width: 138px;
+  height: 24px;
+}
+
+.modal__confirmation_button_delete:hover {
+  cursor: pointer;
+  color: rgba(255, 77, 0, 0.7);
+}
+
+.modal__confirmation_button_cancel {
+  margin: 24px auto;
+  width: 61px;
+  height: 24px;
+  color: rgba(0, 0, 0, 1);
+}
+
+.modal__confirmation_button_cancel:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+}

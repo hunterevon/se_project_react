@@ -7,6 +7,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import { coordinates, apiKey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
@@ -56,6 +57,11 @@ function App() {
       .catch(console.error);
   };
 
+  const handleConfirmationModal = () => {
+    setActiveModal("modal-confirmation");
+    setSelectedCard(card);
+  };
+
   const handleCardDelete = () => {
     removeItem(selectedCard._id)
       .then(() => {
@@ -71,6 +77,11 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
+  };
+
+  const cancelActiveModal = () => {
+    setActiveModal("preview");
+    setSelectedCard(selectedCard);
   };
 
   useEffect(() => {
@@ -153,7 +164,14 @@ function App() {
           isOpen={activeModal === "preview"}
           card={selectedCard}
           onClose={closeActiveModal}
+          onDelete={handleConfirmationModal}
+        />
+        <ConfirmationModal
+          isOpen={activeModal === "modal-confirmation"}
+          activeModal={activeModal}
+          onClose={closeActiveModal}
           onDelete={handleCardDelete}
+          onCancel={cancelActiveModal}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>

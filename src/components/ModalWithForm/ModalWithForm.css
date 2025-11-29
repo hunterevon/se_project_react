@@ -126,3 +126,16 @@
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.6);
 }
+
+.modal__submit_error:disabled {
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: default;
+}
+
+.modal__error {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.1;
+  color: rgba(255, 0, 0, 0.7);
+}
