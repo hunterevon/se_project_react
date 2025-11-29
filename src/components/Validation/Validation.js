@@ -1,4 +1,4 @@
-export const settings = {
+export const Settings = {
   formSelector: ".modal__form",
   inputSelector: [".modal__input", ".modal__radio-input"],
   submitButtonSelector: ".modal__submit",
