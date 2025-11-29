@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { hideInputError } from "../Validation/Validation";
+import { hideInputError } from "../../utils/Validation";
 
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   const defaultValues = {

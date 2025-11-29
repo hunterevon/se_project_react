@@ -1,5 +1,5 @@
 import "./ModalWithForm.css";
-import { enableValidation, Settings } from "../Validation/Validation";
+import { enableValidation, Settings } from "../../utils/Validation";
 
 function ModalWithForm({
   children,
