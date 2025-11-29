@@ -86,15 +86,20 @@ function App() {
 
   useEffect(() => {
     if (!activeModal) return;
+    const handleOverlayClose = (evt) => {
+      if (evt.target.classList.contains("modal")) closeActiveModal();
+    };
     const handleEscClose = (e) => {
       if (e.key === "Escape") {
         closeActiveModal();
       }
     };
     document.addEventListener("keydown", handleEscClose);
+    document.addEventListener("click", handleOverlayClose);
 
     return () => {
       document.removeEventListener("keydown", handleEscClose);
+      document.removeEventListener("click", handleOverlayClose);
     };
   }, [activeModal]);
 
