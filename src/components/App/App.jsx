@@ -70,7 +70,7 @@ function App() {
         });
         setClothingItems(filteredItem);
         closeActiveModal();
-        setCardToDelete(null);
+        setSelectedCard(null);
       })
       .catch(console.error);
   };
@@ -107,8 +107,8 @@ function App() {
     setIsWeatherDataLoading(true);
     getWeather(coordinates, apiKey)
       .then((data) => {
-        const filterData = filterWeatherData(data);
-        setWeatherData(filterData);
+        const filteredData = filterWeatherData(data);
+        setWeatherData(filteredData);
       })
       .catch(console.error);
 
@@ -152,6 +152,7 @@ function App() {
                 <Profile
                   onCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  onAddItemClick={handleAddClick}
                 />
               }
             />

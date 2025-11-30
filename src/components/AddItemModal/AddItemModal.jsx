@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { hideInputError } from "../../utils/Validation";
@@ -18,6 +18,12 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     onAddItem(values);
     resetForm();
   }
+
+  useEffect(() => {
+    if (isOpen) {
+      resetForm();
+    }
+  }, [isOpen]);
 
   return (
     <ModalWithForm
