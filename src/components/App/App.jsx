@@ -105,22 +105,22 @@ function App() {
 
   useEffect(() => {
     setIsWeatherDataLoading(true);
+
     getWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => {
+        setIsWeatherDataLoading(false);
+      });
 
     getItems()
       .then((data) => {
         setClothingItems(data.reverse());
       })
-      .catch(console.error)
-
-      .finally(() => {
-        setIsWeatherDataLoading(false);
-      });
+      .catch(console.error);
   }, []);
 
   return (
