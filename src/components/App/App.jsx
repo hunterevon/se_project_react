@@ -59,7 +59,7 @@ function App() {
 
   const handleConfirmationModal = () => {
     setActiveModal("modal-confirmation");
-    setSelectedCard(selectedCardCard);
+    setSelectedCard(selectedCard);
   };
 
   const handleCardDelete = () => {
