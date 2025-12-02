@@ -12,3 +12,13 @@
   font-weight: 700;
   line-height: 1;
 }
+
+@media screen and (max-width: 768px) {
+  /* Make item cards display as two columns on mobile */
+  .cards__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 0;
+  }
+}

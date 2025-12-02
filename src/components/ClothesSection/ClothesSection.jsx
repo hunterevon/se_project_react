@@ -4,7 +4,6 @@ import ItemCard from "../ItemCard/ItemCard";
 export default function ClothesSection({
   clothingItems,
   onCardClick,
-  handleAddClick,
   onAddItemClick,
 }) {
   return (

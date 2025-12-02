@@ -28,6 +28,12 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setActiveModal("mobile-menu");
+    setIsMobileMenuOpened(!isMobileMenuOpened);
+  };
 
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
@@ -133,6 +139,9 @@ function App() {
             handleAddClick={handleAddClick}
             weatherData={weatherData}
             isLoading={isWeatherDataLoading}
+            mobileMenu={toggleMobileMenu}
+            isMobileMenuOpened={isMobileMenuOpened}
+            onClose={closeActiveModal}
           />
           <Routes>
             <Route

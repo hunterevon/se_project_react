@@ -4,6 +4,7 @@
   align-items: center;
   padding: 32px 0 28px;
   margin: 0;
+  justify-content: space-between;
   width: 100%;
   height: 40px;
 }
@@ -15,7 +16,7 @@
 }
 
 .header__date-location {
-  margin: 0;
+  margin: 0 auto 0 0;
   line-height: 24px;
   flex-direction: row;
   font-weight: 700;
@@ -29,6 +30,7 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
+  background-color: transparent;
 }
 
 .header__add-clothes-btn:hover {
@@ -52,4 +54,138 @@
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.header__nav {
+  display: none;
+}
+
+.header__menu-btn,
+.header__menu-close {
+  display: none;
+}
+
+.header__desktop {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .header__desktop {
+    display: none;
+  }
+  .header__nav {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px);
+    transition: opacity 200ms ease, transform 240ms ease,
+      visibility 0ms linear 200ms;
+    pointer-events: none;
+    width: calc(100% - 32px);
+    box-sizing: border-box;
+  }
+
+  .header {
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    align-items: flex-start;
+    height: auto;
+    padding: 18px 16px;
+  }
+
+  .header__date-location {
+    margin: 32px 0 0 0;
+  }
+
+  .header__menu-btn {
+    align-self: flex-end;
+    background: transparent url(../../assets/menu-btn.png) center no-repeat;
+    background-color: rgba(255, 255, 255, 1);
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    top: 18px;
+    right: 16px;
+    position: absolute;
+    display: block;
+    border: none;
+    cursor: pointer;
+  }
+
+  .header__menu-close {
+    background: transparent url(../../assets/black-close-icon.png) center
+      no-repeat;
+    top: 26px;
+    right: 26px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    position: absolute;
+    display: block;
+  }
+
+  .header__nav-close {
+    background: transparent url(../../assets/black-close-icon.png) center
+      no-repeat;
+    width: 20px;
+    height: 20px;
+    border: none;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+  }
+  .header__nav_opened {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    right: auto;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1360px;
+    z-index: 2000;
+    background-color: #ffffff;
+    border-radius: 12px;
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    display: flex;
+    pointer-events: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 40px 32px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+
+  .header__nav_opened > .header__add-clothes-btn {
+    align-self: center;
+    text-align: center;
+    padding: 8px 12px;
+    background: transparent;
+    border-radius: 8px;
+  }
+
+  .header__nav_opened .header__user-container {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header__toggle {
+    align-self: center;
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
