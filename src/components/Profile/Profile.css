@@ -2,3 +2,128 @@
   display: flex;
   justify-content: space-between;
 }
+
+.profile__main {
+  flex: 1;
+  padding-left: 24px;
+}
+
+.profile__items-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile__items-text {
+  width: 94px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.profile__items-add {
+  background: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  height: 25px;
+}
+
+.profile__items-add:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 1);
+}
+
+.profile__cards {
+  margin-top: 16px;
+}
+
+.profile__divider {
+  display: none;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .profile__main {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  .profile__divider {
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+.profile__mobile-header {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__mobile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto 0 auto;
+    padding: 16px 16px 0 16px;
+    box-sizing: border-box;
+  }
+
+  .profile__user-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .profile__items-row {
+    justify-content: space-between;
+  }
+
+  .profile__mobile-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .profile__mobile-username {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .profile__mobile-change {
+    margin-top: 12px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .profile__mobile-logout {
+    margin-top: 8px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .profile__divider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}

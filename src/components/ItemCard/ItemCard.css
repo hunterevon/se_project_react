@@ -31,7 +31,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  /* Make each card adapt to grid column width on mobile */
   .card {
     width: 100%;
     height: auto;

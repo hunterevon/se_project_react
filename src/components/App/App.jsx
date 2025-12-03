@@ -141,7 +141,6 @@ function App() {
             isLoading={isWeatherDataLoading}
             mobileMenu={toggleMobileMenu}
             isMobileMenuOpened={isMobileMenuOpened}
-            onClose={closeActiveModal}
           />
           <Routes>
             <Route

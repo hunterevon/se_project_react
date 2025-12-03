@@ -12,7 +12,8 @@
 }
 
 .clothes-section__items {
-  margin-left: 116px;
+  width: 225px;
+  margin-left: 0;
 }
 
 .clothes-section__button {
@@ -20,6 +21,7 @@
   background-color: transparent;
   border: none;
   color: rgba(0, 0, 0, 0.6);
+  margin-left: 30px;
 }
 
 .clothes-section__button:hover {
@@ -32,9 +34,72 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0;
-  margin-left: 116px;
+  margin-left: 0;
   width: 100%;
   gap: 20px;
   padding: 0;
   list-style-type: none;
+}
+
+.clothes-section__button_mobile {
+  display: none;
+}
+
+.clothes-section__items {
+  display: none;
+}
+
+.clothes-section__row_mobile {
+  display: none;
+}
+
+.clothes-section__list_mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .clothes-section {
+    display: none;
+  }
+
+  .clothes-section__list {
+    display: none;
+  }
+
+  .clothes-section_mobile {
+    display: flex;
+  }
+
+  .clothes-section__list_mobile {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
+    align-content: center;
+    margin: 0;
+    width: 100%;
+    gap: 20px;
+    padding: 16px;
+    list-style-type: none;
+  }
+
+  .clothes-section__row_mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .clothes-section__button_mobile {
+    width: 88px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .clothes-section__list_mobile {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
 }

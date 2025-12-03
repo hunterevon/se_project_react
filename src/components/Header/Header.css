@@ -7,21 +7,56 @@
   justify-content: space-between;
   width: 100%;
   height: 40px;
+  position: relative;
+}
+
+.header::after {
+  display: none;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.header__divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  top: 0;
+  z-index: 0;
+}
+
+@media screen and (min-width: 769px) {
+  .header--no-divider .header__divider {
+    display: none;
+  }
 }
 
 .header__logo {
   width: 89px;
   height: 40px;
-  margin-right: 24px;
+  margin-right: 0;
+  flex: 0 0 auto;
 }
 
 .header__date-location {
-  margin: 0 auto 0 0;
+  margin: 0;
   line-height: 24px;
   flex-direction: row;
   font-weight: 700;
   height: 24px;
   font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .header__add-clothes-btn {
@@ -69,6 +104,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  flex: 0 0 auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -99,8 +135,25 @@
     padding: 18px 16px;
   }
 
+  .header__brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header__brand {
+    padding-right: 72px;
+  }
+
   .header__date-location {
-    margin: 32px 0 0 0;
+    margin: 0;
+    order: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .header__menu-btn {

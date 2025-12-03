@@ -1,21 +1,61 @@
 .sidebar__profile {
   display: flex;
-  flex-direction: row-reverse;
-  gap: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  width: 240px;
+}
+
+.sidebar__user-row {
+  display: flex;
   align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .sidebar__avatar {
-  margin-left: 12px;
-  flex: 0 0 40px;
+  flex: 0 0 72px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   object-fit: cover;
-  display: block;
-  height: 56px;
 }
 
 .sidebar__user-name {
   font-size: 20px;
   font-weight: 700;
-  white-space: nowrap;
+}
+
+.sidebar__change-btn {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.sidebar__logout-btn {
+  margin-bottom: 20px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.sidebar__divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  width: 100%;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 769px) {
+  .sidebar--no-border .sidebar__profile {
+    border-top: none;
+  }
+  .sidebar--no-border .sidebar__divider {
+    display: none;
+  }
 }
