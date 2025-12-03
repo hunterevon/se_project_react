@@ -8,7 +8,7 @@ import Footer from "../Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
-import { coordinates, apiKey } from "../../utils/constants";
+import { apiKey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import Profile from "../Profile/Profile";
@@ -112,15 +112,41 @@ function App() {
   useEffect(() => {
     setIsWeatherDataLoading(true);
 
-    getWeather(coordinates, apiKey)
+    const fallbackCoordinates = { latitude: 32.615692, longitude: -83.633667 };
+
+    const getUserCoordinates = () => {
+      return new Promise((resolve) => {
+        if (!navigator.geolocation) {
+          resolve(fallbackCoordinates);
+          return;
+        }
+
+        const success = (pos) => {
+          const { latitude, longitude } = pos.coords;
+          resolve({ latitude, longitude });
+        };
+
+        const error = () => {
+          resolve(fallbackCoordinates);
+        };
+
+        // try to get position with a short timeout
+        navigator.geolocation.getCurrentPosition(success, error, {
+          enableHighAccuracy: false,
+          timeout: 5000,
+          maximumAge: 60 * 1000,
+        });
+      });
+    };
+
+    getUserCoordinates()
+      .then((coords) => getWeather(coords, apiKey))
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
       .catch(console.error)
-      .finally(() => {
-        setIsWeatherDataLoading(false);
-      });
+      .finally(() => setIsWeatherDataLoading(false));
 
     getItems()
       .then((data) => {
