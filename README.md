@@ -38,3 +38,9 @@ Responsive Design Techniques
 🖥️ Live Demo
 Check out the deployed website here:
 https://hunterevon.github.io/se_project_react/
+
+## Project Pitch Video
+
+Check out https://drive.google.com/file/d/1Xdogo8x2Vms9hSoWmCPShqaJWC-Ut7F3/view?usp=sharing
+, where I describe my
+project and some challenges I faced while building it.

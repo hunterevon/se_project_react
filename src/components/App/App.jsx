@@ -130,7 +130,6 @@ function App() {
           resolve(fallbackCoordinates);
         };
 
-        // try to get position with a short timeout
         navigator.geolocation.getCurrentPosition(success, error, {
           enableHighAccuracy: false,
           timeout: 5000,

@@ -4,7 +4,14 @@ export const checkResponse = (res) => {
   if (res.ok) {
     return res.json();
   }
-  return Promise.reject(`Error: ${res.status}`);
+  // try to include server response body in the error for easier debugging
+  return res
+    .text()
+    .then((text) => {
+      const body = text || res.statusText || "";
+      return Promise.reject(new Error(`HTTP ${res.status}: ${body}`));
+    })
+    .catch(() => Promise.reject(new Error(`HTTP ${res.status}`)));
 };
 
 const headers = {
